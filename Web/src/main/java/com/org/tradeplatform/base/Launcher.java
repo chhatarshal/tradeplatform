@@ -1,5 +1,4 @@
 package com.org.tradeplatform.base;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -8,9 +7,6 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.ComponentScan;
 
-import com.org.tradeplatform.conf.Context;
-import com.org.tradeplatform.dao.BaseDao;
-import com.org.tradeplatform.model.Entry;
 
 @SpringBootApplication
 @ComponentScan("com.org.tradeplatform.dao")
@@ -18,13 +14,10 @@ import com.org.tradeplatform.model.Entry;
 @ComponentScan("com.org.tradeplatform.conf")
 public class Launcher  extends SpringBootServletInitializer implements CommandLineRunner{
 	
-		@Autowired
-		private BaseDao baseDao;
-	
-	  @Override
-	    protected SpringApplicationBuilder configure(SpringApplicationBuilder  application) {
-	        return application.sources(Launcher.class);
-	    }
+	@Override
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder  application) {
+        return application.sources(Launcher.class);
+    }
 
 	
 	public static void main(String[] args) throws Exception {
@@ -34,12 +27,8 @@ public class Launcher  extends SpringBootServletInitializer implements CommandLi
 	
 	@Override
 	public void run(String... arg0) throws Exception {
-		Context.putObject("baseDao", baseDao);
+	
 	}
 	
-	public  BaseDao getBaseDao() {
-		return baseDao;
-	}
-
 
 }

@@ -6,18 +6,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.org.tradeplatform.dao.BaseDao;
+
+import com.org.tradeplatform.dao.impl.BaseDaoImpl;
 
 
 @RestController
 public class TestController {
 	
-	@Autowired
-	private BaseDao baseDao;
 	
 	@RequestMapping("/test")
 	public List<Object> getAllVal() {
-		return baseDao.loadAllRecord();
+	return null;
 	}
 
 }
